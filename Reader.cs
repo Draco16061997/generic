@@ -10,28 +10,28 @@ using System.Threading.Tasks;
 //Свойства: Имя, Номер читательского билета, Список взятых книг.
 //Методы: Взять книгу, Вернуть книгу.
 book book1 = new book("tven ", "jony","Horror ", 3456);
-Reader<long> reader = new Reader<long>("joe", 356765);
+Reader reader = new Reader("joe", 356765);
 
 
-reader.AddBook(book1);
-reader.Info();
-reader.DeletBook(book1);
-reader.Info();
+//reader.AddBook(book1);
+//reader.Info();
+//reader.DeletBook(book1);
+//reader.Info();
 
 
 namespace generic
 {
-    internal class Reader<T>
+    internal class Reader
     {
         public string Name { get; set; }
-        public T NumBilet { get; set; }
-        List<book> books { get; set; }
+        public int NumBilet { get; set; }
+        List<book> books = new List<book>();
 
-        public Reader(string name, T num)
+        public Reader(string name, int num)
         {
             Name = name;
             NumBilet = num;
-            books = new List<book>();
+            
         }
 
         public void AddBook(book book) {  books.Add(book); Console.WriteLine($"{book.Title} ADD"); }
